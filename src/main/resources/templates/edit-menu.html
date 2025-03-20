@@ -8,17 +8,19 @@
   </head>
   <body>
   <div class="container">
-    <h2>Add New Menu Item</h2>
+    <h2>Edit Menu Item</h2>
 
-    <form th:action="@{/add-menu}" method="post" th:object="${newItem}">
-        <label for="name">Dish Name:</label>
-        <input type="text" id="name" name="name" th:field="*{name}" required>
+    <form th:action="@{/update-menu}" method="post" th:object="${foodMenu}">
+    <input type="hidden" th:field="*{id}" />
+    
+    <label>Item Name:</label>
+    <input type="text" th:field="*{name}" required />
 
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" th:field="*{price}" required>
+    <label>Price:</label>
+    <input type="number" th:field="*{price}" required />
 
-        <button type="submit">Add Menu Item</button>
-    </form>
+    <button type="submit">Update</button>
+</form>
     
     <a href="food-menu" >Go to menu page</a>
     
